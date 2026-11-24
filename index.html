@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#141210" />
+    <meta name="description" content="One-tap backup of the apps on this phone. The file stays with you." />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="robots" content="noindex" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Backup" />
+    <link rel="icon" href="/backup/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/backup/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/backup/manifest.webmanifest" />
+    <title>Backup</title>
+    <script>
+      ;(function () {
+        try {
+          var choice = localStorage.getItem("backup.theme") || "dark";
+          var dark = choice !== "light";
+          if (dark) document.documentElement.classList.add("dark");
+          document.documentElement.style.colorScheme = dark ? "dark" : "light";
+          var theme = document.querySelector('meta[name="theme-color"]');
+          if (theme) theme.setAttribute("content", dark ? "#141210" : "#f4efe6");
+        } catch (e) {}
+      })();
+    </script>
+    <script type="module" crossorigin src="/backup/assets/index-DgwwD633.js"></script>
+    <link rel="stylesheet" crossorigin href="/backup/assets/index-BFEPbMS7.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>Backup needs JavaScript. It only reads what is already stored on this phone.</noscript>
+    <script src="/backup/registerSW.js"></script>
+  </body>
+</html>
